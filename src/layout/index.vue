@@ -19,6 +19,9 @@
                     </router-view>
                 </div>
             </el-main>
+            <el-footer v-if="themeConfig.footer">
+                <Footer></Footer>
+            </el-footer>
         </el-container>
     </el-container>
 </template>
@@ -28,6 +31,13 @@ import Menu from './Menu/index.vue'
 import Header from './Header/index.vue'
 import cacheRouter from "@/router/cacheRouter";
 import Tabs from './Tabs/index.vue'
+import Footer from './Footer/index.vue'
+import { computed } from 'vue'
+import { GlobalStore } from "@/store";
+
+// const authStore = AuthStore();
+const globalStore = GlobalStore();
+const themeConfig = computed(() => globalStore.themeConfig);
 </script>
 
 <style lang='scss' scoped>
